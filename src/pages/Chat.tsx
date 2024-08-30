@@ -76,6 +76,25 @@ const Chat = () => {
 
   return (
     <>
+      {/* Header */}
+      <View
+        style={{
+          alignItems: 'center',
+          paddingVertical: 15,
+          elevation: 3,
+          backgroundColor: '#fff',
+          marginBottom: 2,
+          justifyContent: 'center',
+        }}>
+        <TouchableOpacity
+          onPress={() => setChatList([])}
+          style={{position: 'absolute', right: 15}}>
+          <Icon name="delete" size={30} color="#FE6969" />
+        </TouchableOpacity>
+        <Text style={{color: '#000', fontSize: 22, fontWeight: 'bold'}}>
+          ChatGuru
+        </Text>
+      </View>
       <View style={styles.container}>
         {chatList.length > 0 ? (
           <ScrollView
