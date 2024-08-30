@@ -13,7 +13,8 @@ import {
 import {GoogleGenerativeAI} from '@google/generative-ai';
 import {GEMINI_API_KEY} from '@env';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import Markdown from 'react-native-markdown-renderer';
+// import Markdown from 'react-native-markdown-renderer';
+import Markdown from 'react-native-markdown-display';
 
 const Chat = () => {
   const [input, setInput] = useState('');
@@ -63,14 +64,16 @@ const Chat = () => {
 
   const markdownStyles = {
     text: {
-      color: '#fff',
+      color: '#fff', // White color for regular text
     },
-    heading1: {
-      color: '#fff',
-      fontSize: 24,
+    body: {
+      color: '#000',
     },
-    link: {
-      color: '#1e90ff',
+    code_inline: {
+      backgroundColor: '#777777',
+      borderRadius: 5,
+      padding: 5,
+      color: '#ffffff',
     },
   };
 
@@ -131,10 +134,8 @@ const Chat = () => {
                         marginVertical: 5,
                         marginHorizontal: 10,
                         alignSelf: 'flex-start',
+                        elevation: 3,
                       }}>
-                      {/* <Markdown>
-                        {item.text}
-                        </Markdown> */}
                       <Markdown style={markdownStyles}>{item.text}</Markdown>
                     </View>
                   ) : null}
